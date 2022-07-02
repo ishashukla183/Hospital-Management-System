@@ -1,0 +1,78 @@
+ 
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Doctors
+{% endblock page_title %}
+{% block main_content %}
+   <!-- Main content -->
+   <section class="content">
+    <div class="container-fluid">
+
+
+         <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pharmacist Details</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone no.</th>
+                    <th>Action</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for pharmacist in pharmacists %}
+                  <tr>
+                    <td>{{ pharmacist.admin.id }}</td>
+                    <td>{{ pharmacist.admin.first_name }}</td>
+                    <td>{{ pharmacist.admin.last_name }}</td>
+                    <td>{{ pharmacist.admin.email }}</td>
+                    <td>{{ pharmacist.phNo }}</td>
+                   
+    
+                    <td><a href="/edit_pharmacist/{{ pharmacist.admin.id }}" class="btn btn-success">Edit</a></td>
+                    <td><a href="/delete_pharmacist/{{ pharmacist.admin.id }}" class="btn btn-danger">Delete</a></td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% if message.tags == 'success' %}
+            <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% endfor %}
+          {% endif %}
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+  <!-- /.content-wrapper -->
+  {% endblock main_content %}

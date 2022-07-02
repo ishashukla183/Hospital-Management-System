@@ -1,0 +1,433 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pharmacist | Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" %}">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{% static "plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static "plugins/icheck-bootstrap/icheck-bootstrap.min.css" %}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static "plugins/jqvmap/jqvmap.min.css" %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static "dist/css/adminlte.min.css" %}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static "plugins/overlayScrollbars/css/OverlayScrollbars.min.css" %}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static "plugins/daterangepicker/daterangepicker.css" %}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static "plugins/summernote/summernote-bs4.min.css" %}">
+ 
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <h4 class="nav-link" data-widget="control-sidebar"> Dashboard</h4><i class="fas fa-bars"></i>
+      </li>
+      
+    </ul>
+    <ul class="navbar-nav ml-auto">  <li class="nav-item">
+      <a class="nav-link" data-widget="control-sidebar" data-slide = "true" href="/logout"> Logout </a>
+    </li></ul>
+    <!-- Right navbar links -->
+  
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  {% include 'pharmacist_template/sidebar_template.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  {% include 'pharmacist_template/content_header.html' %}
+    <!-- /.content-header -->
+
+
+  <!-- Main content -->
+   <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>150</h3>
+
+                <p>New Patients</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Bounce Rate</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>User Registrations</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Unique Visitors</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+ 
+ 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" ></script>
+  <!-- /.content -->
+<div class="row">
+  <div class="col">
+    <!-- Calendar -->
+    <div class="card bg-gradient-success">
+      <div class="card-header border-0 ui-sortable-handle" style="cursor: move;">
+
+        <h3 class="card-title">
+          <i class="far fa-calendar-alt"></i>
+          Calendar
+        </h3>
+        <!-- tools card -->
+        <div class="card-tools">
+          <!-- button with a dropdown -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52" aria-expanded="false">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="dropdown-menu" role="menu" style="">
+              <a href="#" class="dropdown-item">Add new event</a>
+              <a href="#" class="dropdown-item">Clear events</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">View calendar</a>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <!-- /. tools -->
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body pt-0">
+        <!--The calendar -->
+        <div id="calendar" style="width: 100%"><div class="bootstrap-datetimepicker-widget usetwentyfour"><ul class="list-unstyled"><li class="show"><div class="datepicker"><div class="datepicker-days" style=""><table class="table table-sm"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Month"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Month">May 2022</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Month"></span></th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td data-action="selectDay" data-day="05/01/2022" class="day weekend">1</td><td data-action="selectDay" data-day="05/02/2022" class="day">2</td><td data-action="selectDay" data-day="05/03/2022" class="day">3</td><td data-action="selectDay" data-day="05/04/2022" class="day">4</td><td data-action="selectDay" data-day="05/05/2022" class="day">5</td><td data-action="selectDay" data-day="05/06/2022" class="day">6</td><td data-action="selectDay" data-day="05/07/2022" class="day weekend">7</td></tr><tr><td data-action="selectDay" data-day="05/08/2022" class="day weekend">8</td><td data-action="selectDay" data-day="05/09/2022" class="day">9</td><td data-action="selectDay" data-day="05/10/2022" class="day">10</td><td data-action="selectDay" data-day="05/11/2022" class="day">11</td><td data-action="selectDay" data-day="05/12/2022" class="day">12</td><td data-action="selectDay" data-day="05/13/2022" class="day">13</td><td data-action="selectDay" data-day="05/14/2022" class="day weekend">14</td></tr><tr><td data-action="selectDay" data-day="05/15/2022" class="day weekend">15</td><td data-action="selectDay" data-day="05/16/2022" class="day">16</td><td data-action="selectDay" data-day="05/17/2022" class="day active">17</td><td data-action="selectDay" data-day="05/18/2022" class="day">18</td><td data-action="selectDay" data-day="05/19/2022" class="day">19</td><td data-action="selectDay" data-day="05/20/2022" class="day">20</td><td data-action="selectDay" data-day="05/21/2022" class="day weekend">21</td></tr><tr><td data-action="selectDay" data-day="05/22/2022" class="day weekend">22</td><td data-action="selectDay" data-day="05/23/2022" class="day">23</td><td data-action="selectDay" data-day="05/24/2022" class="day">24</td><td data-action="selectDay" data-day="05/25/2022" class="day">25</td><td data-action="selectDay" data-day="05/26/2022" class="day">26</td><td data-action="selectDay" data-day="05/27/2022" class="day">27</td><td data-action="selectDay" data-day="05/28/2022" class="day weekend">28</td></tr><tr><td data-action="selectDay" data-day="05/29/2022" class="day weekend">29</td><td data-action="selectDay" data-day="05/30/2022" class="day">30</td><td data-action="selectDay" data-day="05/31/2022" class="day today">31</td><td data-action="selectDay" data-day="06/01/2022" class="day new">1</td><td data-action="selectDay" data-day="06/02/2022" class="day new">2</td><td data-action="selectDay" data-day="06/03/2022" class="day new">3</td><td data-action="selectDay" data-day="06/04/2022" class="day new weekend">4</td></tr><tr><td data-action="selectDay" data-day="06/05/2022" class="day new weekend">5</td><td data-action="selectDay" data-day="06/06/2022" class="day new">6</td><td data-action="selectDay" data-day="06/07/2022" class="day new">7</td><td data-action="selectDay" data-day="06/08/2022" class="day new">8</td><td data-action="selectDay" data-day="06/09/2022" class="day new">9</td><td data-action="selectDay" data-day="06/10/2022" class="day new">10</td><td data-action="selectDay" data-day="06/11/2022" class="day new weekend">11</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Year"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Year">2022</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Year"></span></th></tr></thead><tbody><tr><td colspan="7"><span data-action="selectMonth" class="month">Jan</span><span data-action="selectMonth" class="month">Feb</span><span data-action="selectMonth" class="month">Mar</span><span data-action="selectMonth" class="month">Apr</span><span data-action="selectMonth" class="month active">May</span><span data-action="selectMonth" class="month">Jun</span><span data-action="selectMonth" class="month">Jul</span><span data-action="selectMonth" class="month">Aug</span><span data-action="selectMonth" class="month">Sep</span><span data-action="selectMonth" class="month">Oct</span><span data-action="selectMonth" class="month">Nov</span><span data-action="selectMonth" class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Decade"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Decade">2020-2029</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Decade"></span></th></tr></thead><tbody><tr><td colspan="7"><span data-action="selectYear" class="year old">2019</span><span data-action="selectYear" class="year">2020</span><span data-action="selectYear" class="year">2021</span><span data-action="selectYear" class="year active">2022</span><span data-action="selectYear" class="year">2023</span><span data-action="selectYear" class="year">2024</span><span data-action="selectYear" class="year">2025</span><span data-action="selectYear" class="year">2026</span><span data-action="selectYear" class="year">2027</span><span data-action="selectYear" class="year">2028</span><span data-action="selectYear" class="year">2029</span><span data-action="selectYear" class="year old">2030</span></td></tr></tbody></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Century"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5">2000-2090</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Century"></span></th></tr></thead><tbody><tr><td colspan="7"><span data-action="selectDecade" class="decade old" data-selection="2006">1990</span><span data-action="selectDecade" class="decade" data-selection="2006">2000</span><span data-action="selectDecade" class="decade" data-selection="2016">2010</span><span data-action="selectDecade" class="decade active" data-selection="2026">2020</span><span data-action="selectDecade" class="decade" data-selection="2036">2030</span><span data-action="selectDecade" class="decade" data-selection="2046">2040</span><span data-action="selectDecade" class="decade" data-selection="2056">2050</span><span data-action="selectDecade" class="decade" data-selection="2066">2060</span><span data-action="selectDecade" class="decade" data-selection="2076">2070</span><span data-action="selectDecade" class="decade" data-selection="2086">2080</span><span data-action="selectDecade" class="decade" data-selection="2096">2090</span><span data-action="selectDecade" class="decade old" data-selection="2106">2100</span></td></tr></tbody></table></div></div></li><li class="picker-switch accordion-toggle"></li></ul></div></div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+
+  <div class="col-lg-6">
+  <div class="card card-danger text-center" style = "align-content : center; text-align : center; ">
+    <div class="card-header text-center">
+      <h3 class="card-title text-center">Doctor Statistics</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body text-center">
+      <canvas id="pie-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 250px; "></canvas>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+  
+      var config = {
+        type: 'pie',
+        data: {
+          datasets: [{
+            data: {{ total|safe }},
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+            label: 'Population'
+          }],
+          labels: {{ result|safe }}
+        },
+        options: {
+          responsive: true
+        }
+      };
+  
+      window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+      }; 
+    
+    </script>
+  
+
+  
+</div>
+  </div>
+  {% include 'pharmacist_template/footer_template.html' %}
+
+ 
+</div>
+<!-- ./wrapper -->
+<script>
+  $(function () {
+
+    /* initialize the external events
+     -----------------------------------------------------------------*/
+    function ini_events(ele) {
+      ele.each(function () {
+
+        // create an Event Object (https://fullcalendar.io/docs/event-object)
+        // it doesn't need to have a start or end
+        var eventObject = {
+          title: $.trim($(this).text()) // use the element's text as the event title
+        }
+
+        // store the Event Object in the DOM element so we can get to it later
+        $(this).data('eventObject', eventObject)
+
+        // make the event draggable using jQuery UI
+        $(this).draggable({
+          zIndex        : 1070,
+          revert        : true, // will cause the event to go back to its
+          revertDuration: 0  //  original position after the drag
+        })
+
+      })
+    }
+
+    ini_events($('#external-events div.external-event'))
+
+    /* initialize the calendar
+     -----------------------------------------------------------------*/
+    //Date for the calendar events (dummy data)
+    var date = new Date()
+    var d    = date.getDate(),
+        m    = date.getMonth(),
+        y    = date.getFullYear()
+
+    var Calendar = FullCalendar.Calendar;
+    var Draggable = FullCalendar.Draggable;
+
+    var containerEl = document.getElementById('external-events');
+    var checkbox = document.getElementById('drop-remove');
+    var calendarEl = document.getElementById('calendar');
+
+    // initialize the external events
+    // -----------------------------------------------------------------
+
+    new Draggable(containerEl, {
+      itemSelector: '.external-event',
+      eventData: function(eventEl) {
+        return {
+          title: eventEl.innerText,
+          backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
+          borderColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
+          textColor: window.getComputedStyle( eventEl ,null).getPropertyValue('color'),
+        };
+      }
+    });
+
+    var calendar = new Calendar(calendarEl, {
+      headerToolbar: {
+        left  : 'prev,next today',
+        center: 'title',
+        right : 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      themeSystem: 'bootstrap',
+      //Random default events
+      events: [
+        {
+          title          : 'All Day Event',
+          start          : new Date(y, m, 1),
+          backgroundColor: '#f56954', //red
+          borderColor    : '#f56954', //red
+          allDay         : true
+        },
+        {
+          title          : 'Long Event',
+          start          : new Date(y, m, d - 5),
+          end            : new Date(y, m, d - 2),
+          backgroundColor: '#f39c12', //yellow
+          borderColor    : '#f39c12' //yellow
+        },
+        {
+          title          : 'Meeting',
+          start          : new Date(y, m, d, 10, 30),
+          allDay         : false,
+          backgroundColor: '#0073b7', //Blue
+          borderColor    : '#0073b7' //Blue
+        },
+        {
+          title          : 'Lunch',
+          start          : new Date(y, m, d, 12, 0),
+          end            : new Date(y, m, d, 14, 0),
+          allDay         : false,
+          backgroundColor: '#00c0ef', //Info (aqua)
+          borderColor    : '#00c0ef' //Info (aqua)
+        },
+        {
+          title          : 'Birthday Party',
+          start          : new Date(y, m, d + 1, 19, 0),
+          end            : new Date(y, m, d + 1, 22, 30),
+          allDay         : false,
+          backgroundColor: '#00a65a', //Success (green)
+          borderColor    : '#00a65a' //Success (green)
+        },
+        {
+          title          : 'Click for Google',
+          start          : new Date(y, m, 28),
+          end            : new Date(y, m, 29),
+          url            : 'https://www.google.com/',
+          backgroundColor: '#3c8dbc', //Primary (light-blue)
+          borderColor    : '#3c8dbc' //Primary (light-blue)
+        }
+      ],
+      editable  : true,
+      droppable : true, // this allows things to be dropped onto the calendar !!!
+      drop      : function(info) {
+        // is the "remove after drop" checkbox checked?
+        if (checkbox.checked) {
+          // if so, remove the element from the "Draggable Events" list
+          info.draggedEl.parentNode.removeChild(info.draggedEl);
+        }
+      }
+    });
+
+    calendar.render();
+    // $('#calendar').fullCalendar()
+
+    /* ADDING EVENTS */
+    var currColor = '#3c8dbc' //Red by default
+    // Color chooser button
+    $('#color-chooser > li > a').click(function (e) {
+      e.preventDefault()
+      // Save color
+      currColor = $(this).css('color')
+      // Add color effect to button
+      $('#add-new-event').css({
+        'background-color': currColor,
+        'border-color'    : currColor
+      })
+    })
+    $('#add-new-event').click(function (e) {
+      e.preventDefault()
+      // Get value and make sure it is not null
+      var val = $('#new-event').val()
+      if (val.length == 0) {
+        return
+      }
+
+      // Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor,
+        'border-color'    : currColor,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.text(val)
+      $('#external-events').prepend(event)
+
+      // Add draggable funtionality
+      ini_events(event)
+
+      // Remove event from text input
+      $('#new-event').val('')
+    })
+  })
+</script>
+<!-- jQuery -->
+<script src="{% static "plugins/jquery/jquery.min.js" %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static "plugins/jquery-ui/jquery-ui.min.js" %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+<!-- ChartJS -->
+<script src="{% static "plugins/chart.js/Chart.min.js" %}"></script>
+<!-- Sparkline -->
+<script src="{% static "plugins/sparklines/sparkline.js" %}"></script>
+<!-- JQVMap -->
+<script src="{% static "plugins/jqvmap/jquery.vmap.min.js" %}"></script>
+<script src="{% static "plugins/jqvmap/maps/jquery.vmap.usa.js" %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static "plugins/jquery-knob/jquery.knob.min.js" %}"></script>
+<!-- daterangepicker -->
+<script src="{% static "plugins/moment/moment.min.js" %}"></script>
+<script src="{% static "plugins/daterangepicker/daterangepicker.js" %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static "plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js" %}"></script>
+<!-- Summernote -->
+<script src="{% static "plugins/summernote/summernote-bs4.min.js" %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static "plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js" %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static "dist/js/adminlte.js" %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static "dist/js/demo.js" %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static "dist/js/pages/dashboard.js" %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+ 
+{% extends 'doctor_template/base_template.html' %}
+{% block page_title %}
+Doctors
+{% endblock page_title %}
+{% block main_content %}
+   <!-- Main content -->
+   <section class="content">
+    <div class="container-fluid">
+
+
+         <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Patient Details</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone no.</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for appointment in appointments %}
+                  <tr>
+                    <td>{{ appointment.patient_id.id }}</td>
+                    <td>{{ appointment.patient_id.admin.first_name }}</td>
+                    <td>{{ appointment.patient_id.admin.last_name }}</td>
+                    <td>{{ appointment.patient_id.admin.email }}</td>
+                    <td>{{ appointment.patient_id.phNo }}</td>
+                    <td>{{ appointment.patient_id.height }}</td>
+                    <td>{{ appointment.patient_id.weight }}</td>
+                    <td><a href="/edit_patient/{{ appointment.patient_id.admin.id }}" class="btn btn-success">View</a></td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+  <!-- /.content-wrapper -->
+  {% endblock main_content %}
